@@ -4,22 +4,30 @@ output:
   html_document:
     keep_md: true
 ---
+```{r,}
+# Download and unzip
+  zipFile = "repdata-data-activity.zip"
+  csvFile = "activity.csv"
+  if(!file.exists(csvFile)) {
+    url = "https://d396qusza40orc.cloudfront.net/repdata%2Fdata%2Factivity.zip"
+    file<-download.file(url, destfile = zipFile, method = "curl")
+    unzip(zipFile, files=csvFile)
+  }
+  csvFile
+```
 
+# Loading and preprocessing the data
 
-## Loading and preprocessing the data
+```{r}
+  csvFile
+  data <- read.csv(csvFile)
+```
 
+# What is mean total number of steps taken per day?
 
+# What is the average daily activity pattern?
 
-## What is mean total number of steps taken per day?
+# Imputing missing values
 
+# Are there differences in activity patterns between weekdays and weekends?
 
-
-## What is the average daily activity pattern?
-
-
-
-## Imputing missing values
-
-
-
-## Are there differences in activity patterns between weekdays and weekends?

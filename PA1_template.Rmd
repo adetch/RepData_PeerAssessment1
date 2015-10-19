@@ -140,10 +140,9 @@ The values are changed significantly, with the mean and median both increasing.
     summarize(steps=mean(steps, na.rm=TRUE))
 ```
 
-```{r}
-  g <- ggplot(data=by_interval_mean_imputed, aes(x=interval, y=steps))
-  g + geom_line(stat='identity')
-  g + facet_grid(weekday)
-```
-
 ### Make a panel plot containing a time series plot (i.e. type = "l") of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). See the README file in the GitHub repository to see an example of what this plot should look like using simulated data.
+
+```{r}
+  g <- ggplot(data=by_interval_mean_imputed, aes(x=interval, y=steps, color=weekday))
+  g + geom_line(stat='identity') + facet_grid(weekday ~ .) + theme(legend.position="none")
+```
